@@ -31,7 +31,7 @@ app.add_middleware(
 
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
-    raise Exception("GROQ_API_KEY not found")
+    print("WARNING: GROQ_API_KEY not found")
 
 client = Groq(api_key=api_key)
 
