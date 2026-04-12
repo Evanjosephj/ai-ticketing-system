@@ -348,10 +348,10 @@ function AdminDashboard() {
   const [analytics, setAnalytics] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/admin/tickets/", { headers: authHeaders() })
+    axios.get("https://ai-ticketing-system-2.onrender.com/admin/tickets/", { headers: authHeaders() })
       .then(r => setTickets(r.data))
       .catch(() => {});
-    axios.get("http://127.0.0.1:8000/admin/analytics/", { headers: authHeaders() })
+    axios.get("https://ai-ticketing-system-2.onrender.com/admin/analytics/", { headers: authHeaders() })
       .then(r => setAnalytics(r.data))
       .catch(() => {});
   }, []);

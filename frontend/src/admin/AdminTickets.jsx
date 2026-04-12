@@ -202,7 +202,7 @@ function AdminTickets() {
     if (deptFilter !== "All") params.department = deptFilter;
     if (sevFilter !== "All") params.severity = sevFilter;
     if (search) params.search = search;
-    axios.get("http://127.0.0.1:8000/admin/tickets/", {
+    axios.get("https://ai-ticketing-system-2.onrender.com/admin/tickets/", {
       headers: authHeaders(), params,
     }).then(r => setTickets(r.data)).catch(() => {});
   };

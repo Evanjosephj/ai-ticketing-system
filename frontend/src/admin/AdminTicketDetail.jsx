@@ -174,9 +174,9 @@ function AdminTicketDetail() {
   const [timeline, setTimeline] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/tickets/${id}`, { headers: authHeaders() })
+    axios.get(`https://ai-ticketing-system-2.onrender.com/admin/tickets/${id}`, { headers: authHeaders() })
       .then(r => setTicket(r.data)).catch(() => {});
-    axios.get(`http://127.0.0.1:8000/admin/tickets/${id}/timeline`, { headers: authHeaders() })
+    axios.get(`https://ai-ticketing-system-2.onrender.com/admin/tickets/${id}/timeline`, { headers: authHeaders() })
       .then(r => setTimeline(r.data)).catch(() => {});
   }, [id]);
 

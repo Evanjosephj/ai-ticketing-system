@@ -108,12 +108,12 @@ function AgentTicketDetail() {
   const [success, setSuccess] = useState("");
 
   const fetchAll = () => {
-    axios.get(`http://127.0.0.1:8000/employee/tickets/`, { headers: authHeaders() })
+    axios.get(`https://ai-ticketing-system-2.onrender.com/employee/tickets/`, { headers: authHeaders() })
       .then(r => {
         const t = r.data.find(t => t.id === parseInt(id));
         if (t) { setTicket(t); setStatus(t.status); }
       }).catch(() => {});
-    axios.get(`http://127.0.0.1:8000/employee/tickets/${id}/timeline`, { headers: authHeaders() })
+    axios.get(`https://ai-ticketing-system-2.onrender.com/employee/tickets/${id}/timeline`, { headers: authHeaders() })
       .then(r => setTimeline(r.data)).catch(() => {});
   };
 
@@ -122,7 +122,7 @@ function AgentTicketDetail() {
   const handleUpdate = async () => {
     setSaving(true);
     try {
-      await axios.patch(`http://127.0.0.1:8000/employee/tickets/${id}`, { status, note }, { headers: authHeaders() });
+      await axios.patch(`https://ai-ticketing-system-2.onrender.com/employee/tickets/${id}`, { status, note }, { headers: authHeaders() });
       setSuccess("Status updated successfully.");
       setNote("");
       fetchAll();
@@ -135,7 +135,7 @@ function AgentTicketDetail() {
     if (!internalNote.trim()) return;
     setSaving(true);
     try {
-      await axios.patch(`http://127.0.0.1:8000/employee/tickets/${id}`, { internal_note: internalNote }, { headers: authHeaders() });
+      await axios.patch(`https://ai-ticketing-system-2.onrender.com/employee/tickets/${id}`, { internal_note: internalNote }, { headers: authHeaders() });
       setSuccess("Note saved.");
       setInternalNote("");
       fetchAll();

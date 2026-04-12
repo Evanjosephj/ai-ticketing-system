@@ -123,7 +123,7 @@ function AdminAnalytics() {
   const [data, setData] = useState(null);
 
   const fetchData = () => {
-    axios.get("http://127.0.0.1:8000/admin/analytics/", { headers: authHeaders() })
+    axios.get("https://ai-ticketing-system-2.onrender.com/admin/analytics/", { headers: authHeaders() })
       .then(r => setData(r.data)).catch(() => {});
   };
 

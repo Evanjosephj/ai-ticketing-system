@@ -447,13 +447,13 @@ function TrackTicket() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/tickets/track/${id}`)
+      .get(`https://ai-ticketing-system-2.onrender.com/tickets/track/${id}`)
       .then((res) => { setTicket(res.data); setLoading(false); })
       .catch(() => setLoading(false));
   }, [id]);
 
   const sendFeedback = async (helpful) => {
-    await axios.patch(`http://127.0.0.1:8000/tickets/${id}/feedback`, { helpful });
+    await axios.patch(`https://ai-ticketing-system-2.onrender.com/tickets/${id}/feedback`, { helpful });
     setFeedback(helpful);
   };
 

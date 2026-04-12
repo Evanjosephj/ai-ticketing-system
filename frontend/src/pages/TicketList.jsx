@@ -9,7 +9,7 @@ function TicketList() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/tickets/").then((res) => setTickets(res.data));
+    axios.get("https://ai-ticketing-system-2.onrender.com/tickets/").then((res) => setTickets(res.data));
   }, []);
 
   const statuses = ["All", "New", "Assigned", "In Progress", "Pending Info", "Resolved", "Auto-Resolved", "Closed", "Escalated"];

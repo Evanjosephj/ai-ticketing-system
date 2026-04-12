@@ -9,7 +9,7 @@ function Employees() {
   const [form, setForm] = useState({ name: "", email: "", department: "", role: "", skill_tags: "", availability: "Available" });
 
   const fetchEmployees = () => {
-    axios.get("http://127.0.0.1:8000/employees/").then((res) => setEmployees(res.data));
+    axios.get("https://ai-ticketing-system-2.onrender.com/employees/").then((res) => setEmployees(res.data));
   };
 
   useEffect(() => { fetchEmployees(); }, []);
@@ -21,7 +21,7 @@ function Employees() {
       alert("Please fill all fields!");
       return;
     }
-    await axios.post("http://127.0.0.1:8000/employees/", form);
+    await axios.post("https://ai-ticketing-system-2.onrender.com/employees/", form);
     setForm({ name: "", email: "", department: "", role: "", skill_tags: "", availability: "Available" });
     setShowForm(false);
     fetchEmployees();
@@ -29,7 +29,7 @@ function Employees() {
 
   const deactivate = async (id) => {
     if (window.confirm("Deactivate this employee?")) {
-      await axios.delete(`http://127.0.0.1:8000/employees/${id}`);
+      await axios.delete(`https://ai-ticketing-system-2.onrender.com/employees/${id}`);
       fetchEmployees();
     }
   };

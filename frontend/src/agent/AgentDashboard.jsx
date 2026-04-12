@@ -97,7 +97,7 @@ function AgentDashboard() {
   const [tickets, setTickets] = useState([]);
 
   const fetchTickets = () => {
-    axios.get("http://127.0.0.1:8000/employee/tickets/", { headers: authHeaders() })
+    axios.get("https://ai-ticketing-system-2.onrender.com/employee/tickets/", { headers: authHeaders() })
       .then(r => setTickets(r.data)).catch(() => {});
   };
 

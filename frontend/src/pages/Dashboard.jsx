@@ -13,8 +13,8 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/tickets/").then((res) => setTickets(res.data));
-    axios.get("http://127.0.0.1:8000/analytics/").then((res) => setStats(res.data));
+    axios.get("https://ai-ticketing-system-2.onrender.com/tickets/").then((res) => setTickets(res.data));
+    axios.get("https://ai-ticketing-system-2.onrender.com/analytics/").then((res) => setStats(res.data));
   }, []);
 
   const statCards = stats ? [

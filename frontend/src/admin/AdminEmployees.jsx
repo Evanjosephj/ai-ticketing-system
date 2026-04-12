@@ -622,7 +622,7 @@ function AdminEmployees() {
   });
 
   const fetchEmployees = () => {
-    axios.get("http://127.0.0.1:8000/admin/employees/", { headers: authHeaders() })
+    axios.get("https://ai-ticketing-system-2.onrender.com/admin/employees/", { headers: authHeaders() })
       .then(r => setEmployees(r.data)).catch(() => {});
   };
 
@@ -653,10 +653,10 @@ function AdminEmployees() {
     try {
       if (editEmp) {
         const payload = { name: form.name, email: form.email, department: form.department, role: form.role, skill_tags: form.skill_tags, availability: form.availability };
-        await axios.patch(`http://127.0.0.1:8000/admin/employees/${editEmp.id}`, payload, { headers: authHeaders() });
+        await axios.patch(`https://ai-ticketing-system-2.onrender.com/admin/employees/${editEmp.id}`, payload, { headers: authHeaders() });
         setShowModal(false);
       } else {
-        await axios.post("http://127.0.0.1:8000/admin/employees/", form, { headers: authHeaders() });
+        await axios.post("https://ai-ticketing-system-2.onrender.com/admin/employees/", form, { headers: authHeaders() });
         setShowModal(false);
         setCredentialsModal({ email: form.email, password: form.password });
       }
@@ -669,7 +669,7 @@ function AdminEmployees() {
 
   const handleDeactivate = async (id) => {
     if (!window.confirm("Deactivate this employee?")) return;
-    await axios.delete(`http://127.0.0.1:8000/admin/employees/${id}`, { headers: authHeaders() });
+    await axios.delete(`https://ai-ticketing-system-2.onrender.com/admin/employees/${id}`, { headers: authHeaders() });
     fetchEmployees();
   };
 

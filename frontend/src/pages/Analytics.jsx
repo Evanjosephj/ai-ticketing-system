@@ -11,7 +11,7 @@ function Analytics() {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/analytics/").then((res) => setStats(res.data));
+    axios.get("https://ai-ticketing-system-2.onrender.com/analytics/").then((res) => setStats(res.data));
   }, []);
 
   const COLORS = ["#185FA5", "#534AB7", "#3B6D11", "#854F0B", "#A32D2D"];

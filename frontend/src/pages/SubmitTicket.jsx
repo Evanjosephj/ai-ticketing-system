@@ -17,7 +17,7 @@ function SubmitTicket() {
     }
     setLoading(true);
     try {
-      const res = await axios.post("http://127.0.0.1:8000/tickets/", form);
+      const res = await axios.post("https://ai-ticketing-system-2.onrender.com/tickets/", form);
       if (res.data && res.data.id) navigate(`/tickets/${res.data.id}`);
       else navigate("/tickets");
     } catch {

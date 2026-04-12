@@ -18,22 +18,22 @@ function TicketDetail() {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/tickets/${id}`).then((res) => { setTicket(res.data); setStatus(res.data.status); });
-    axios.get(`http://127.0.0.1:8000/tickets/${id}/timeline`).then((res) => setTimeline(res.data));
+    axios.get(`https://ai-ticketing-system-2.onrender.com/tickets/${id}`).then((res) => { setTicket(res.data); setStatus(res.data.status); });
+    axios.get(`https://ai-ticketing-system-2.onrender.com/tickets/${id}/timeline`).then((res) => setTimeline(res.data));
   }, [id]);
 
   const updateStatus = async () => {
-    await axios.patch(`http://127.0.0.1:8000/tickets/${id}`, { status, note });
+    await axios.patch(`https://ai-ticketing-system-2.onrender.com/tickets/${id}`, { status, note });
     setNote("");
-    const res = await axios.get(`http://127.0.0.1:8000/tickets/${id}`);
+    const res = await axios.get(`https://ai-ticketing-system-2.onrender.com/tickets/${id}`);
     setTicket(res.data);
-    const tl = await axios.get(`http://127.0.0.1:8000/tickets/${id}/timeline`);
+    const tl = await axios.get(`https://ai-ticketing-system-2.onrender.com/tickets/${id}/timeline`);
     setTimeline(tl.data);
   };
 
   const sendFeedback = async (helpful) => {
-    await axios.patch(`http://127.0.0.1:8000/tickets/${id}`, { helpful });
-    const res = await axios.get(`http://127.0.0.1:8000/tickets/${id}`);
+    await axios.patch(`https://ai-ticketing-system-2.onrender.com/tickets/${id}`, { helpful });
+    const res = await axios.get(`https://ai-ticketing-system-2.onrender.com/tickets/${id}`);
     setTicket(res.data);
   };
 

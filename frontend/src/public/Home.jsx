@@ -372,7 +372,7 @@ const handleSubmit = async () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post("http://127.0.0.1:8000/tickets/", form);
+      const res = await axios.post("https://ai-ticketing-system-2.onrender.com/tickets/", form);
       console.log("Full response:", res.data);
       const id = res.data?.id || res.data?.ticket_id || null;
       if (id) {
